@@ -130,9 +130,20 @@ class mypageFragment : Fragment() {
 
     private fun addEntry(y: Float) {
         entries.add(Entry(xValue, y))
+        lineDataSet.notifyDataSetChanged()
         lineChart.data.notifyDataChanged()
         lineChart.notifyDataSetChanged()
         lineChart.invalidate()
+
+        // 최신 값 전달
+        sendLatestValueToExerciseFragment(y)
+    }
+
+    private fun sendLatestValueToExerciseFragment(latestValue: Float) {
+        val bundle = Bundle().apply {
+            putFloat("latest_value", latestValue)
+        }
+        parentFragmentManager.setFragmentResult("latestValueKey", bundle)
     }
 
     private fun deleteEntry(entry: Entry) {
@@ -141,10 +152,18 @@ class mypageFragment : Fragment() {
                 db.graphDataDao().deleteGraphData(it, entry.x, entry.y)
                 activity?.runOnUiThread {
                     entries.remove(entry)
+
+                    // xValue를 업데이트하여 차트에서 Y축의 최대값을 줄임
+                    if (entries.isNotEmpty()) {
+                        xValue = entries.maxByOrNull { it.x }?.x ?: 1f
+                    } else {
+                        xValue = 1f
+                    }
+
+                    lineDataSet.notifyDataSetChanged()
                     lineChart.data.notifyDataChanged()
                     lineChart.notifyDataSetChanged()
                     lineChart.invalidate()
-                    Toast.makeText(requireContext(), "Entry deleted", Toast.LENGTH_SHORT).show()
                 }
             }
         }

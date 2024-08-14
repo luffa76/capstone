@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/exercise3Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#3F51B5"
+            android:text="레벨 3단계"
+            android:textSize="24sp" />
+        <!--운동1-->
+        <LinearLayout
+            android:id="@+id/ex3_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex3_1Img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_home"
+                android:contentDescription="Exercise 3_1 Image"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex3_1Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="밴드 이용한 저항 운동 (목 저항 운동)"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise3_1Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="탄력 밴드를 머리 뒤에 걸고, 밴드를 당겨 목을 저항하면서 천천히 당겨줍니다. 10초간 유지하고, 5회 반복합니다. 이 운동은 목의 근력을 강화하는 데 효과적입니다."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!--           운동1       -->
+        <!--        운동2-->
+        <LinearLayout
+            android:id="@+id/ex3_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex3_2Img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_home"
+                android:contentDescription="Exercise 3_2 Image"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex3_2Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="흉추 이완 스트레칭 (캣카우 스트레칭)"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise3_2Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="네발로 엎드려서 등을 아치형으로 만들어 올렸다가, 다시 내려줍니다. 각각의 자세를 5초간 유지하며, 10회 반복합니다. 흉추와 목의 긴장을 풀어줍니다."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!--        운동2-->
+        <!--        운동3-->
+        <LinearLayout
+            android:id="@+id/ex3_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex3_3Img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_home"
+                android:contentDescription="Exercise 3_3 Image"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex3_3Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="견갑골 압박 운동"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise3_3Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="양 팔을 옆으로 벌리고, 어깨 날개뼈를 중앙으로 모으듯이 당깁니다. 5초간 유지하고, 10회 반복합니다. 어깨와 목 근육을 강화하고 자세 교정에 도움을 줍니다."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!--        운동3-->
+        <!--        운동4-->
+        <LinearLayout
+            android:id="@+id/ex3_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex3_4Img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_home"
+                android:contentDescription="Exercise 3_4 Image"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex3_4Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="목 측면 스트레칭"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise3_4Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="오른손으로 머리를 왼쪽으로 살짝 당겨주고, 반대쪽도 같은 방법으로 스트레칭합니다. 각각 10초간 유지하며, 5회 반복합니다."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!--        운동4-->
+        <!--        운동5-->
+        <LinearLayout
+            android:id="@+id/ex3_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex3_5Img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_home"
+                android:contentDescription="Exercise 3_5 Image"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex3_5Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="디스크 교정 운동 (턱 당기기 및 등 굽히기)"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise3_5Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="등과 목을 천천히 굽혀 등을 원형으로 만들고, 다시 펴면서 턱을 당겨줍니다. 각각 10초간 유지하고, 5회 반복합니다. 디스크에 압력을 줄이는데 도움이 됩니다."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!--        운동5-->
+    </LinearLayout>
+</ScrollView>

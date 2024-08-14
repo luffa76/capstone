@@ -13,4 +13,8 @@
         android:id="@+id/mypageFragment"
         android:title="마이페이지"
         android:icon="@drawable/ic_mypage"/>
+    <item
+        android:id="@+id/ExerciseFragment"
+        android:title="운동"
+        android:icon="@drawable/ic_exercise"/>
 </menu>

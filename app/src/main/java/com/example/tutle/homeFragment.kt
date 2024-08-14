@@ -30,8 +30,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tutle.AlarmData
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.Calendar
 import kotlin.concurrent.thread
+import com.example.tutle.AlarmDao
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 class homeFragment : Fragment() {
 
@@ -129,7 +136,8 @@ class homeFragment : Fragment() {
 
         val timePickerDialog = TimePickerDialog(
             requireContext(),
-            { _, selectedHour, selectedMinute ->
+            android.R.style.Theme_Holo_Light_Dialog_NoActionBar,
+            TimePickerDialog.OnTimeSetListener { _, selectedHour, selectedMinute ->
                 val description = descriptionEditText.text.toString()
                 editAlarm(alarmData, selectedHour, selectedMinute, description)
             },
@@ -219,9 +227,11 @@ class homeFragment : Fragment() {
             // 로그인 상태가 아니면 처리하는 코드
         }
 
-        alarmAdapter = AlarmAdapter(alarmList) { alarmData ->
+        alarmAdapter = AlarmAdapter(alarmList, { alarmData ->
             showEditAlarmDialog(alarmData)
-        }
+        }, { alarmData ->
+            deleteAlarmDirectly(alarmData)// 삭제 처리추가한것 문제시 삭제
+        })
         alarmRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         alarmRecyclerView.adapter = alarmAdapter
 
@@ -236,6 +246,12 @@ class homeFragment : Fragment() {
         loadAlarms()
 
         loadNickname()
+
+        // 로그아웃 버튼 클릭 리스너 설정
+        val logoutButton: Button = view.findViewById(R.id.btn_logout)
+        logoutButton.setOnClickListener {
+            logout()
+        }
 
         return view
     }
@@ -266,8 +282,32 @@ class homeFragment : Fragment() {
             }
         }
     }
+    // 11. 알람을 직접 삭제하는 함수
+    private fun deleteAlarmDirectly(alarm: AlarmData) {
+        // Coroutine을 직접 시작해서 AlarmDao 호출
+        CoroutineScope(Dispatchers.IO).launch {
+            db.alarmDao().deleteAlarm(alarm)
 
+            // UI 갱신은 MainDispatcher에서 처리
+            withContext(Dispatchers.Main) {
+                alarmList.remove(alarm)
+                alarmAdapter.notifyDataSetChanged()
+                Toast.makeText(requireContext(), "알람이 삭제되었습니다.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+    // 로그아웃 기능 구현
+    private fun logout() {
+        // Firebase에서 로그아웃
+        Firebase.auth.signOut()
 
+        // 로그아웃 후 로그인 화면으로 이동
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        startActivity(intent)
+
+        // 홈 프래그먼트가 포함된 액티비티를 종료
+        activity?.finish()
+    }
 
     /////// 닉네임 ///////
     private fun showNicknameDialog() {

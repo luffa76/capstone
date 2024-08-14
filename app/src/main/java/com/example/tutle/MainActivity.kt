@@ -31,6 +31,17 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         auth = Firebase.auth
+
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            // 사용자가 이미 로그인된 상태라면, 메인 화면으로 이동
+            val intent = Intent(this, NaviActivity::class.java)
+            startActivity(intent)
+            finish()  // 이 액티비티를 종료하여 돌아갈 수 없도록 함
+        }
+
+
+
         val join = findViewById<Button>(R.id.join)
         val login = findViewById<Button>(R.id.login)
 
