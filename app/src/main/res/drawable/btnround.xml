@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="16dp" /> <!-- 모서리를 둥글게 설정 -->
+    <solid android:color="#58ACFA" /> <!-- 배경색을 #58ACFA로 설정 -->
+    <stroke android:width="2dp" android:color="#58ACFA"/> <!-- 테두리도 같은 색상으로 설정 -->
+</shape>
