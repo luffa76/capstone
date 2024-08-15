@@ -31,7 +31,7 @@
                 android:id="@+id/ex3_1Img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ex3_1"
                 android:contentDescription="Exercise 3_1 Image"
                 android:layout_marginEnd="16dp"/>
 
@@ -71,7 +71,7 @@
                 android:id="@+id/ex3_2Img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ex3_2"
                 android:contentDescription="Exercise 3_2 Image"
                 android:layout_marginEnd="16dp"/>
 
@@ -111,7 +111,7 @@
                 android:id="@+id/ex3_3Img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ex3_3"
                 android:contentDescription="Exercise 3_3 Image"
                 android:layout_marginEnd="16dp"/>
 
@@ -151,7 +151,7 @@
                 android:id="@+id/ex3_4Img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ex3_4"
                 android:contentDescription="Exercise 3_4 Image"
                 android:layout_marginEnd="16dp"/>
 
@@ -191,7 +191,7 @@
                 android:id="@+id/ex3_5Img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ex3_5"
                 android:contentDescription="Exercise 3_5 Image"
                 android:layout_marginEnd="16dp"/>
 

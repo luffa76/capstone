@@ -29,9 +29,9 @@
 
         <ImageView
             android:id="@+id/ex1_1Img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_home"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ex1_1"
             android:contentDescription="Exercise 1 Image"
             android:layout_marginEnd="16dp"/>
 
@@ -71,7 +71,7 @@
                 android:id="@+id/ex1_2Img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ex1_2"
                 android:contentDescription="Exercise 1 Image"
                 android:layout_marginEnd="16dp"/>
 
@@ -111,7 +111,7 @@
                 android:id="@+id/ex1_3Img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ex1_34"
                 android:contentDescription="Exercise 1 Image"
                 android:layout_marginEnd="16dp"/>
 
@@ -151,7 +151,7 @@
                 android:id="@+id/ex1_4Img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ex1_34"
                 android:contentDescription="Exercise 1 Image"
                 android:layout_marginEnd="16dp"/>
 
@@ -191,7 +191,7 @@
                 android:id="@+id/ex1_5Img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ex1_5"
                 android:contentDescription="Exercise 1 Image"
                 android:layout_marginEnd="16dp"/>
 
