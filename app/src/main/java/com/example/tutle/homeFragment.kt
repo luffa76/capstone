@@ -2,6 +2,7 @@ package com.example.tutle
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -10,6 +11,7 @@ import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.InputType
@@ -18,13 +20,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,6 +44,7 @@ import kotlin.concurrent.thread
 import com.example.tutle.AlarmDao
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
+import de.hdodenhof.circleimageview.CircleImageView
 
 class homeFragment : Fragment() {
 
@@ -46,6 +52,10 @@ class homeFragment : Fragment() {
         const val CHANNEL_ID = "my_channel_id"
         private const val NOTIFICATION_ID = 1
         private const val REQUEST_CODE = 101
+        private const val REQUEST_CODE_GALLERY = 102 // 갤러리 접근 권한 요청 코드 추가
+        private const val REQUEST_CODE_PERMISSION = 1000
+        //private const val REQUEST_CODE_GALLERY = 2000
+        const val REQUEST_CODE_SELECT_IMAGE = 2000
     }
 
     private lateinit var btnSetAlarm: Button
@@ -56,6 +66,9 @@ class homeFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: AppDatabase
     private lateinit var userEmailTextView: TextView
+    private lateinit var profileImageView: ImageView // 프로필 이미지뷰 추가///circler뷰 아닌가?
+
+    private lateinit var ivProfile: CircleImageView
 
     // 1. 알림 채널을 생성하는 함수
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -216,7 +229,15 @@ class homeFragment : Fragment() {
         btnSetAlarm = view.findViewById(R.id.btn_alarmset)
         alarmRecyclerView = view.findViewById(R.id.alarmListView)
         userEmailTextView = view.findViewById(R.id.userid)
-
+        profileImageView = view.findViewById(R.id.imageView) // 프로필 이미지뷰 초기화
+// 프로필 이미지뷰 클릭 리스너 추가
+        profileImageView.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                requestGalleryPermissionForAndroid13()
+            } else {
+                requestGalleryPermissionForBelowAndroid13()
+            }
+        }
         auth = FirebaseAuth.getInstance()
 
         val currentUser = auth.currentUser
@@ -252,6 +273,17 @@ class homeFragment : Fragment() {
         logoutButton.setOnClickListener {
             logout()
         }
+        // CircleImageView를 찾아 클릭 리스너 추가
+        val profileImageView: CircleImageView = view.findViewById(R.id.imageView)
+        profileImageView.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                requestGalleryPermissionForAndroid13()
+            } else {
+                requestGalleryPermissionForBelowAndroid13()
+            }
+        }
+        ivProfile = view.findViewById(R.id.imageView)
+        initImageViewProfile()
 
         return view
     }
@@ -272,16 +304,28 @@ class homeFragment : Fragment() {
         requestCode: Int, permissions: Array<out String>, grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_CODE) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // 권한이 허용됨
-                // 필요에 따라 알림을 보내는 함수 호출
-            } else {
-                // 권한이 거부됨
-                Toast.makeText(context, "알림 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+        when (requestCode) {
+            REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // 알림 권한이 허용됨
+                    // 필요에 따라 알림을 보내는 함수 호출
+                } else {
+                    // 알림 권한이 거부됨
+                    Toast.makeText(context, "알림 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+                }
+            }
+            REQUEST_CODE_GALLERY -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // 갤러리 접근 권한이 허용된 경우 갤러리 열기
+                    navigateGallery() // openGallery()가 아닌 navigateGallery()로 변경
+                } else {
+                    // 갤러리 접근 권한이 거부된 경우 메시지 표시
+                    Toast.makeText(context, "갤러리 접근 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
+
     // 11. 알람을 직접 삭제하는 함수
     private fun deleteAlarmDirectly(alarm: AlarmData) {
         // Coroutine을 직접 시작해서 AlarmDao 호출
@@ -343,7 +387,6 @@ class homeFragment : Fragment() {
             loadNickname()
         }
     }
-
     private fun loadNickname() {
         thread {
             val nickname = db.nicknameDao().getNickname()
@@ -352,4 +395,104 @@ class homeFragment : Fragment() {
             }
         }
     }
+/////////////////
+
+    private fun initImageViewProfile() {
+        ivProfile.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                // Android 13(API level 33) 이상일 경우
+                requestGalleryPermissionForAndroid13()
+            } else {
+                // Android 13 미만일 경우
+                requestGalleryPermissionForBelowAndroid13()
+            }
+        }
+    }
+    private fun requestGalleryPermissionForAndroid13() {
+        when {
+            ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.READ_MEDIA_IMAGES
+            ) == PackageManager.PERMISSION_GRANTED -> {
+                navigateGallery()
+            }
+
+            shouldShowRequestPermissionRationale(Manifest.permission.READ_MEDIA_IMAGES) -> {
+                showPermissionContextPopup()
+            }
+
+            else -> requestPermissions(
+                arrayOf(Manifest.permission.READ_MEDIA_IMAGES),
+                REQUEST_CODE_GALLERY
+            )
+        }
+    }
+
+    private fun requestGalleryPermissionForBelowAndroid13() {
+        when {
+            ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_GRANTED -> {
+                navigateGallery()
+            }
+
+            shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> {
+                showPermissionContextPopup()
+            }
+
+            else -> requestPermissions(
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                REQUEST_CODE_GALLERY
+            )
+        }
+    }
+    private fun navigateGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, REQUEST_CODE_SELECT_IMAGE)
+    }
+
+    private fun showPermissionContextPopup() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("권한이 필요합니다.")
+            .setMessage("프로필 이미지를 바꾸기 위해서는 갤러리 접근 권한이 필요합니다.")
+            .setPositiveButton("동의하기") { _, _ ->
+                requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_CODE_GALLERY)
+            }
+            .setNegativeButton("취소하기") { _, _ -> }
+            .create()
+            .show()
+    }
+
+    // 갤러리 오픈 함수
+    private fun openGallery() {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            // 권한이 있는 경우 갤러리 열기
+            val intent = Intent(Intent.ACTION_PICK).apply {
+                type = "image/*" // 이미지만 선택
+            }
+            startActivityForResult(intent, REQUEST_CODE_GALLERY)
+        } else {
+            // 권한이 없는 경우 권한 요청
+            requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_CODE_PERMISSION)
+        }
+    }
+    // 이미지 선택 결과 처리 함수 추가
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode != Activity.RESULT_OK) return
+
+        when (requestCode) {
+            REQUEST_CODE_SELECT_IMAGE -> {
+                val selectedImageUri: Uri? = data?.data
+                if (selectedImageUri != null) {
+                    ivProfile.setImageURI(selectedImageUri)
+                } else {
+                    Toast.makeText(requireContext(), "사진을 가져오지 못했습니다.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
 }
