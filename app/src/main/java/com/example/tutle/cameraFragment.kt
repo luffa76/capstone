@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Environment
 
@@ -97,6 +98,8 @@ class cameraFragment : Fragment() {
             imageUrl = photoURI
             takePicture.launch(photoURI)
         }
+        // 사진을 저장한 후 갤러리에 반영
+        addImageToGallery(currentPhotoPath)
     }
 
     @Throws(IOException::class)
@@ -111,4 +114,12 @@ class cameraFragment : Fragment() {
             currentPhotoPath = absolutePath
         }
     }
+    private fun addImageToGallery(photoPath: String) {
+        val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+        val file = File(photoPath)
+        val contentUri = Uri.fromFile(file)
+        mediaScanIntent.data = contentUri
+        requireContext().sendBroadcast(mediaScanIntent)
+    }
+
 }
