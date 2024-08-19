@@ -1,14 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ExerciseFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/exercise0Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#3F51B5"
+            android:text="목 건강 유지 운동"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/exercise0_1Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#3F51B5"
+            android:text="오늘의 상태를 입력하면 적합한 운동이 추천됩니다."
+            android:textSize="13dp" />
+        <!-- 운동 1 -->
+        <LinearLayout
+            android:id="@+id/ex1_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex1_1Img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ex3_4"
+                android:contentDescription="Exercise 1 Image"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex1_1Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="목 측면 스트레칭"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise1_1Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="한쪽 손을 머리 위로 올려 반대쪽 귀 옆을 잡고, 머리를 천천히 손쪽으로 당깁니다. 각각의 방향으로 10초간 유지하고, 5회 반복합니다."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 운동 1 끝 -->
+
+        <!-- 운동 2 -->
+        <LinearLayout
+            android:id="@+id/ex1_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex1_2Img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ex1_2"
+                android:contentDescription="Exercise 2 Image"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex1_2Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="어깨 돌리기"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise1_2Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="양 어깨를 천천히 앞에서 뒤로, 뒤에서 앞으로 돌립니다. 각 방향으로 10회씩, 2세트 수행합니다."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 운동 2 끝 -->
+
+        <!-- 운동 3 -->
+        <LinearLayout
+            android:id="@+id/ex1_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex1_3Img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ex1_34"
+                android:contentDescription="Exercise 3 Image"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex1_3Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="턱 당기기"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise1_3Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="턱을 살짝 당겨서 목이 곧게 펴지도록 유지합니다. 5~10초간 유지하고, 10회 반복합니다."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 운동 3 끝 -->
+
+        <!-- 운동 4 -->
+        <LinearLayout
+            android:id="@+id/ex1_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex1_4Img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ex1_5"
+                android:contentDescription="Exercise 4 Image"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex1_4Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="상체 회전 스트레칭"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise1_4Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="의자에 앉아 상체를 천천히 좌우로 돌려줍니다. 각각의 방향으로 5회 반복합니다."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 운동 4 끝 -->
+
+        <!-- 운동 5 -->
+        <LinearLayout
+            android:id="@+id/ex1_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex1_5Img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ex0_5"
+                android:contentDescription="Exercise 5 Image"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex1_5Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="가슴 펴기 스트레칭"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise1_5Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="양팔을 뒤로 깍지 끼고, 가슴을 펴며 어깨를 뒤로 당깁니다. 10초간 유지하고, 5회 반복합니다."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 운동 5 끝 -->
+
+    </LinearLayout>
+</ScrollView>
