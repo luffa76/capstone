@@ -54,8 +54,7 @@ class mypageFragment : Fragment() {
             db = AppDatabase.getDatabase(requireContext(), userId!!)
             loadEntries()
         } else {
-            // Handle the case where the user is not logged in
-            // For example, redirect to login page
+            // 로그인되지않았을때의 상황
         }
 
         initializeChart()
@@ -137,8 +136,31 @@ class mypageFragment : Fragment() {
 
         // 최신 값 전달
         sendLatestValueToExerciseFragment(y)
-    }
 
+
+//        if (y < 0) {
+//            Toast.makeText(context, "음수 값은 입력할 수 없습니다.", Toast.LENGTH_SHORT).show()
+//            return
+//        }
+//
+//        // xValue를 올바르게 계산
+//        val lastXValue = entries.maxByOrNull { it.x }?.x ?: 0f
+//        if (xValue <= lastXValue) {
+//            xValue = lastXValue + 1
+//        }
+//
+//        entries.add(Entry(xValue, y))
+//        updateChart()
+//
+//        saveEntry(xValue, y)
+//        xValue += 1
+    }
+//    private fun updateChart() {
+//        lineDataSet.notifyDataSetChanged()
+//        lineChart.data.notifyDataChanged()
+//        lineChart.notifyDataSetChanged()
+//        lineChart.invalidate()
+//    }
     private fun sendLatestValueToExerciseFragment(latestValue: Float) {
         val bundle = Bundle().apply {
             putFloat("latest_value", latestValue)
@@ -157,6 +179,11 @@ class mypageFragment : Fragment() {
                     if (entries.isNotEmpty()) {
                         xValue = entries.maxByOrNull { it.x }?.x ?: 1f
                     } else {
+                        xValue = 1f
+                    }
+
+                    // 음수 값이 될 가능성을 방지
+                    if (xValue < 0) {
                         xValue = 1f
                     }
 

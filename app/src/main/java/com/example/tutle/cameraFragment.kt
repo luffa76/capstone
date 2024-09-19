@@ -1,5 +1,7 @@
 package com.example.tutle
 
+import android.Manifest
+import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -20,46 +22,33 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.os.Environment
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
 
 class cameraFragment : Fragment() {
-
-    private lateinit var captureIV: ImageView
-    private lateinit var imageUrl: Uri
-    private lateinit var currentPhotoPath: String
-
-    private val cameraPermissionRequest = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { isGranted ->
-        if (isGranted) {
-            dispatchTakePictureIntent()
-        } else {
-            // 권한이 거부된 경우 처리할 로직
-        }
-    }
-
-    private val takePicture = registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
-        if (isSuccess) {
-            captureIV.setImageURI(imageUrl)
-        } else {
-            // 사진이 촬영되지 않았을 때 처리할 로직
-        }
-    }
+    private lateinit var imageView: ImageView
+    private lateinit var captureButton: Button
+    private val REQUEST_IMAGE_CAPTURE = 1
+    private val REQUEST_CAMERA_PERMISSION = 100
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // 안내메시지
         val view = inflater.inflate(R.layout.fragment_camera, container, false)
+        imageView = view.findViewById(R.id.imgView)
+        captureButton = view.findViewById(R.id.btn_captureImg)
 
-        captureIV = view.findViewById(R.id.imgView)
-        val captureButton: Button = view.findViewById(R.id.btn_captureImg)
         captureButton.setOnClickListener {
-            if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                cameraPermissionRequest.launch(android.Manifest.permission.CAMERA)
-            } else {
+            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED) {
                 dispatchTakePictureIntent()
+            } else {
+                // 권한 요청
+                ActivityCompat.requestPermissions(requireActivity(),
+                    arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA_PERMISSION)
             }
         }
         showAlertDialog()
@@ -67,6 +56,46 @@ class cameraFragment : Fragment() {
         return view
     }
 
+    private fun dispatchTakePictureIntent() {
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+            takePictureIntent.resolveActivity(requireActivity().packageManager)?.also {
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+            }
+        }
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+            val imageBitmap = data?.extras?.get("data") as Bitmap
+            imageView.setImageBitmap(imageBitmap)
+        }
+    }
+    // 권한 요청 결과 처리
+//    override fun onRequestPermissionsResult(
+//        requestCode: Int, permissions: Array<out String>, grantResults: IntArray
+//    ) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//        if (requestCode == REQUEST_CAMERA_PERMISSION) {
+//            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+//                // 권한이 허용된 경우 카메라 실행
+//                dispatchTakePictureIntent()
+//            } else {
+//                // 권한이 거부된 경우
+//                Toast.makeText(requireContext(), "카메라 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+//            }
+//        }
+//    }
+    private val cameraPermissionRequest = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            dispatchTakePictureIntent()
+        } else {
+            Toast.makeText(requireContext(), "카메라 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+        }
+    }
     private fun showAlertDialog() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("알림")
@@ -81,45 +110,6 @@ class cameraFragment : Fragment() {
         }
         val dialog = builder.create()
         dialog.show()
-    }
-
-    private fun dispatchTakePictureIntent() {
-        val photoFile: File? = try {
-            createImageFile()
-        } catch (ex: IOException) {
-            null
-        }
-        photoFile?.also {
-            val photoURI: Uri = FileProvider.getUriForFile(
-                requireContext(),
-                "${requireContext().packageName}.fileprovider",
-                it
-            )
-            imageUrl = photoURI
-            takePicture.launch(photoURI)
-        }
-        // 사진을 저장한 후 갤러리에 반영
-        addImageToGallery(currentPhotoPath)
-    }
-
-    @Throws(IOException::class)
-    private fun createImageFile(): File {
-        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        val storageDir: File = requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES)!!
-        return File.createTempFile(
-            "JPEG_${timeStamp}_",
-            ".jpg",
-            storageDir
-        ).apply {
-            currentPhotoPath = absolutePath
-        }
-    }
-    private fun addImageToGallery(photoPath: String) {
-        val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
-        val file = File(photoPath)
-        val contentUri = Uri.fromFile(file)
-        mediaScanIntent.data = contentUri
-        requireContext().sendBroadcast(mediaScanIntent)
     }
 
 }

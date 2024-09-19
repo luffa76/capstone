@@ -5,6 +5,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#DAAAE2FF"
         android:orientation="vertical">
 
         <TextView
@@ -15,7 +16,7 @@
             android:padding="10dp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:background="#3F51B5"
+            android:background="@color/BLUE2"
             android:text="레벨 2단계"
             android:textSize="24sp" />
         <!--운동1-->
@@ -24,6 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
@@ -33,6 +37,7 @@
                 android:layout_height="150dp"
                 android:src="@drawable/ex2_1"
                 android:contentDescription="Exercise 2_1 Image"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="16dp"/>
 
             <LinearLayout
@@ -64,6 +69,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
@@ -73,6 +81,7 @@
                 android:layout_height="150dp"
                 android:src="@drawable/ex2_2"
                 android:contentDescription="Exercise 2_2 Image"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="16dp"/>
 
             <LinearLayout
@@ -104,6 +113,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
@@ -113,6 +125,7 @@
                 android:layout_height="150dp"
                 android:src="@drawable/ex2_3"
                 android:contentDescription="Exercise 2_3 Image"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="16dp"/>
 
             <LinearLayout
@@ -144,6 +157,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
@@ -153,6 +169,7 @@
                 android:layout_height="150dp"
                 android:src="@drawable/ex2_4"
                 android:contentDescription="Exercise 2_4 Image"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="16dp"/>
 
             <LinearLayout
@@ -184,6 +201,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
@@ -193,6 +213,7 @@
                 android:layout_height="150dp"
                 android:src="@drawable/ex2_5"
                 android:contentDescription="Exercise 2_5 Image"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="16dp"/>
 
             <LinearLayout

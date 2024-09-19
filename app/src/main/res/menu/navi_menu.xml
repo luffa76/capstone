@@ -11,7 +11,7 @@
         android:icon="@drawable/ic_camera"/>
     <item
         android:id="@+id/mypageFragment"
-        android:title="마이페이지"
+        android:title="기록"
         android:icon="@drawable/ic_mypage"/>
     <item
         android:id="@+id/ExerciseFragment"

@@ -6,6 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#E0E0E0"
         android:orientation="vertical">
 
         <TextView
@@ -16,7 +17,7 @@
             android:padding="10dp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:background="#3F51B5"
+            android:background="@color/BLUE2"
             android:text="목 건강 유지 운동"
             android:textSize="24sp" />
 
@@ -28,7 +29,7 @@
             android:padding="10dp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:background="#3F51B5"
+            android:background="@color/BLUE2"
             android:text="오늘의 상태를 입력하면 적합한 운동이 추천됩니다."
             android:textSize="13dp" />
         <!-- 운동 1 -->
@@ -37,6 +38,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
@@ -46,6 +50,7 @@
                 android:layout_height="150dp"
                 android:src="@drawable/ex3_4"
                 android:contentDescription="Exercise 1 Image"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="16dp"/>
 
             <LinearLayout
@@ -78,6 +83,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
@@ -87,6 +95,7 @@
                 android:layout_height="150dp"
                 android:src="@drawable/ex1_2"
                 android:contentDescription="Exercise 2 Image"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="16dp"/>
 
             <LinearLayout
@@ -119,6 +128,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
@@ -128,6 +140,7 @@
                 android:layout_height="150dp"
                 android:src="@drawable/ex1_34"
                 android:contentDescription="Exercise 3 Image"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="16dp"/>
 
             <LinearLayout
@@ -160,6 +173,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
@@ -169,6 +185,7 @@
                 android:layout_height="150dp"
                 android:src="@drawable/ex1_5"
                 android:contentDescription="Exercise 4 Image"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="16dp"/>
 
             <LinearLayout
@@ -201,6 +218,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
@@ -210,6 +230,7 @@
                 android:layout_height="150dp"
                 android:src="@drawable/ex0_5"
                 android:contentDescription="Exercise 5 Image"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="16dp"/>
 
             <LinearLayout
