@@ -216,12 +216,12 @@ class ExerciseFragment : Fragment() {
         Exercise(
             "벽에 기대어 목 스트레칭",
             "벽에 등을 기대고, 목을 뒤로 젖히며 스트레칭합니다. 10초간 유지하고 5회 반복합니다.",
-            R.drawable.ic_home
+            R.drawable.ex0_6
         ),
         Exercise(
             "팔을 흔들기",
             "양팔을 양옆으로 쭉 펴고, 천천히 팔을 앞뒤로 흔들어줍니다. 10회 반복합니다.",
-            R.drawable.ic_home
+            R.drawable.ex0_7
         ),
         Exercise(
             "목 스트레칭 (좌우 회전)",
@@ -274,17 +274,17 @@ class ExerciseFragment : Fragment() {
         Exercise(
             "어깨 스트레칭",
             "한쪽 팔을 가슴 앞으로 쭉 뻗고, 반대쪽 손으로 팔을 가슴 쪽으로 당겨줍니다. 각 방향으로 10초간 유지합니다.",
-            R.drawable.ic_home
+            R.drawable.ex1_8
         ),
         Exercise(
             "고개 옆으로 기울이기",
             "목을 옆으로 기울여서 귀가 어깨에 가까워지도록 합니다. 10초간 유지하고 반대쪽도 반복합니다.",
-            R.drawable.ic_home
+            R.drawable.ex1_9
         ),
         Exercise(
             "목 힘주기",
             "손으로 이마를 눌러 목에 저항을 주며 5초간 유지합니다. 이 운동을 10회 반복합니다.",
-            R.drawable.ic_home
+            R.drawable.ex1_10
         )
 
     )
@@ -328,22 +328,22 @@ class ExerciseFragment : Fragment() {
         Exercise(
             "턱 당기기",
             " 턱을 천천히 가슴 쪽으로 당겨 목을 곧게 펴줍니다. 5초간 유지하고 10회 반복합니다.",
-            R.drawable.ic_home
+            R.drawable.ex2_8
         ),
         Exercise(
             "상체 이완 스트레칭",
             " 두 팔을 위로 쭉 펴고, 상체를 옆으로 기울입니다. 각 방향으로 10초간 유지합니다.",
-            R.drawable.ic_home
+            R.drawable.ex2_9
         ),
         Exercise(
             "어깨 세우기",
             " 어깨를 귀 방향으로 올리고 3초간 유지한 후, 천천히 내립니다. 10회 반복합니다.",
-            R.drawable.ic_home
+            R.drawable.ex2_10
         ),
         Exercise(
             "목 스트레칭 (사선으로)",
             " 목을 대각선 방향으로 기울이며 스트레칭합니다. 각 방향으로 10초간 유지합니다.",
-            R.drawable.ic_home
+            R.drawable.ex1_9
         )
     )
 
@@ -386,17 +386,17 @@ class ExerciseFragment : Fragment() {
         Exercise(
             "벽에 기대어 고개 숙이기",
             "벽에 등을 대고 고개를 천천히 숙여 턱이 가슴에 닿도록 합니다. 10초간 유지하고 5회 반복합니다.",
-            R.drawable.ic_exercise
+            R.drawable.ex3_8
         ),
         Exercise(
             "양팔 스트레칭",
             "두 팔을 천천히 앞으로 뻗고, 손끝이 벽에 닿도록 합니다. 각 방향에서 10초간 유지합니다.",
-            R.drawable.ic_exercise
+            R.drawable.ex3_7
         ),
         Exercise(
             "어깨 날개뼈 이완 운동",
             "양 팔을 쭉 펴고, 양쪽 어깨를 최대한 아래로 내리면서 5초간 유지합니다. 10회 반복합니다.",
-            R.drawable.ic_exercise
+            R.drawable.ex2_2
         )
     )
 
