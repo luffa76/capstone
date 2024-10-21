@@ -72,21 +72,7 @@ class cameraFragment : Fragment() {
             imageView.setImageBitmap(imageBitmap)
         }
     }
-    // 권한 요청 결과 처리
-//    override fun onRequestPermissionsResult(
-//        requestCode: Int, permissions: Array<out String>, grantResults: IntArray
-//    ) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-//        if (requestCode == REQUEST_CAMERA_PERMISSION) {
-//            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-//                // 권한이 허용된 경우 카메라 실행
-//                dispatchTakePictureIntent()
-//            } else {
-//                // 권한이 거부된 경우
-//                Toast.makeText(requireContext(), "카메라 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//    }
+
     private val cameraPermissionRequest = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->

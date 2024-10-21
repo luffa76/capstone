@@ -43,7 +43,10 @@
             android:layout_marginTop="280dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="40dp"
+            android:textSize="20dp"
+            android:textColor="@color/white"
             android:background="@drawable/btn_round"
+            android:textStyle="bold"
             android:text="회원가입" />
 
         <EditText
@@ -66,7 +69,9 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="9dp"
-            android:background="@color/BLUE2"
+            android:background="@drawable/btn_round"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:text="중복 확인"
             android:textSize="16dp" />
 
@@ -89,5 +94,19 @@
 
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/gologin"
+        android:layout_width="160dp"
+        android:layout_height="42dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/btn_round"
+        android:text="로그인 화면으로"
+        android:textStyle="bold"
+        android:textSize="19dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

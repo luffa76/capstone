@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 
 class MainActivity : AppCompatActivity() {
-    val binding by lazy { ActivityMainBinding.inflate(layoutInflater)}
+    val binding by lazy {ActivityMainBinding.inflate(layoutInflater)}
     private lateinit var auth: FirebaseAuth
 
     @SuppressLint("MissingInflatedId")

@@ -137,23 +137,6 @@ class mypageFragment : Fragment() {
         // 최신 값 전달
         sendLatestValueToExerciseFragment(y)
 
-
-//        if (y < 0) {
-//            Toast.makeText(context, "음수 값은 입력할 수 없습니다.", Toast.LENGTH_SHORT).show()
-//            return
-//        }
-//
-//        // xValue를 올바르게 계산
-//        val lastXValue = entries.maxByOrNull { it.x }?.x ?: 0f
-//        if (xValue <= lastXValue) {
-//            xValue = lastXValue + 1
-//        }
-//
-//        entries.add(Entry(xValue, y))
-//        updateChart()
-//
-//        saveEntry(xValue, y)
-//        xValue += 1
     }
 //    private fun updateChart() {
 //        lineDataSet.notifyDataSetChanged()

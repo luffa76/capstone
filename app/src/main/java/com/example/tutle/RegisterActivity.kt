@@ -1,5 +1,6 @@
 package com.example.tutle
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -32,6 +33,14 @@ class RegisterActivity : AppCompatActivity() {
         val checkEmailButton = findViewById<Button>(R.id.check_email)
         val email = findViewById<EditText>(R.id.email)
         val password = findViewById<EditText>(R.id.password)
+        val gologinButton = findViewById<Button>(R.id.gologin) // 로그인화면 이동버튼
+
+        // 로그인 버튼 클릭 시 MainActivity로 이동하는 코드
+        gologinButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
 
         checkEmailButton.setOnClickListener {
             val emailText = email.text.toString()
@@ -86,4 +95,5 @@ class RegisterActivity : AppCompatActivity() {
                 }
         }
     }
+
 }
