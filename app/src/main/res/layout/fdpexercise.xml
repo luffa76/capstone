@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E0E0E0"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/exercise0Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@color/BLUE2"
+                android:text="목 건강 유지 운동"
+                android:textSize="24sp" />
+
+        </FrameLayout>
+
+        <!-- 운동 1: 목 후방 스트레칭 -->
+        <LinearLayout
+            android:id="@+id/ex1_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex1_1Img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="Exercise 1 Image"
+                android:src="@drawable/fhpex1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex1_1Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="목 후방 스트레칭"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise1_1Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="등을 곧게 편 상태에서 턱을 살짝 당겨 목을 뒤로 당깁니다. 10초간 유지 후 풀어줍니다. 10회 반복."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 운동 1 끝 -->
+
+        <!-- 운동 2: 견갑골 안정화 운동 -->
+        <LinearLayout
+            android:id="@+id/ex1_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex1_2Img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/fhpex2"
+                android:contentDescription="Exercise 2 Image"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex1_2Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="견갑골 안정화 운동"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise1_2Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="양쪽 어깨를 위로 올리고 뒤로 당긴 후, 견갑골을 서로 모아 5초간 유지합니다. 10회 반복."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 운동 2 끝 -->
+
+        <!-- 운동 3: 거북목 방지 스트레칭 -->
+        <LinearLayout
+            android:id="@+id/ex1_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex1_3Img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/fhpex3"
+                android:contentDescription="Exercise 3 Image"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex1_3Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="거북목 방지 스트레칭"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise1_3Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="양손을 머리 뒤로 두고, 고개를 뒤로 젖히며 목을 천천히 스트레칭 합니다. 10회 반복."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 운동 3 끝 -->
+
+        <!-- 운동 4: 흉추(등) 스트레칭 -->
+        <LinearLayout
+            android:id="@+id/ex1_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex1_4Img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/fhpex4"
+                android:contentDescription="Exercise 4 Image"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex1_4Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="흉추(등) 스트레칭"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise1_4Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="등을 곧게 편 상태에서 팔을 머리 위로 들어 올리고, 상체를 뒤로 살짝 젖힙니다. 10초간 유지하고 5회 반복."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 운동 4 끝 -->
+
+        <!-- 운동 5: 어깨 돌리기 -->
+        <LinearLayout
+            android:id="@+id/ex1_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rebg_rounded_rectangle"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ex1_5Img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ic_home"
+                android:contentDescription="Exercise 5 Image"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ex1_5Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="어깨 돌리기"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/exercise1_5Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="어깨를 위로 올렸다가 뒤로 돌리고, 아래로 내리는 동작을 천천히 반복합니다. 10회씩 2~3세트 수행."
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
