@@ -47,7 +47,7 @@ class ExerciseFragment : Fragment() {
             } else {
                 // FdP 운동으로 전환
                 setExercises(view, fdPExercises)
-                changeExerciseButton.text = "이전 운동"
+                changeExerciseButton.text = "이전운동"
             }
             isFdPExercise = !isFdPExercise
         }

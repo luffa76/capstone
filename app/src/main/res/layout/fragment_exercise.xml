@@ -24,11 +24,11 @@
                 android:textSize="24sp" />
             <Button
                 android:id="@+id/changeButton"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rebg_rounded_rectangle"
                 android:textColor="@color/black"
-                android:layout_marginStart="310dp"
+                android:layout_marginStart="295dp"
                 android:layout_marginTop="4dp"
                 android:text="일자목"
                 android:textSize="18dp"/>
